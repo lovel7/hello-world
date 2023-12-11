@@ -115,30 +115,17 @@ public class GenereDaoImpl implements GenereDao {
 	@Override
 	public void deleteGenere(Genere genere) {
 		try {
-			con.setAutoCommit(false);
 			String query = "delete from eserciziolibri.genere where CodiceG = ? and Tipo = ?";
 			PreparedStatement preparedStatement = con.prepareStatement(query);
 			preparedStatement.setInt(1, genere.getCodiceG());
 			preparedStatement.setString(2, genere.getTipo());
 			preparedStatement.executeUpdate();
 			genereList.remove(genere);
-			con.commit();
 			System.out.println("Genere cancellato correttamente");
 
 		} catch (SQLException e) {
-			try {
-				con.rollback(); // In caso di errore, esegui il rollback della transazione
-			} catch (SQLException rollbackException) {
-				rollbackException.printStackTrace();
-			}
 			System.out.println("Non è possibile cancellare il genere");
 			e.printStackTrace();
-		} finally {
-			try {
-				con.setAutoCommit(true); // Ripristina l'autocommit
-			} catch (SQLException autoCommitException) {
-				autoCommitException.printStackTrace();
-			}
 		}
 	}
 

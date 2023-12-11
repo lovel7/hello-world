@@ -2,19 +2,19 @@ package it.betacom.model;
 
 public class Autore {
 	
-	private String AutoreID;
+	private int AutoreID;
 	private String Nome;
 	private String Cognome;
 	private int AnnoN;
 	private int AnnoM;
-	private char Sesso;
+	private String Sesso;
 	private String Nazione;
 	
 	public Autore() {
 		super();
 	}
 
-	public Autore(String autoreID, String nome, String cognome, int annoN, int annoM, char sesso, String nazione) {
+	public Autore(int autoreID, String nome, String cognome, int annoN, int annoM, String sesso, String nazione) {
 		super();
 		AutoreID = autoreID;
 		Nome = nome;
@@ -25,11 +25,11 @@ public class Autore {
 		Nazione = nazione;
 	}
 
-	public String getAutoreID() {
+	public int getAutoreID() {
 		return AutoreID;
 	}
 
-	public void setAutoreID(String autoreID) {
+	public void setAutoreID(int autoreID) {
 		AutoreID = autoreID;
 	}
 
@@ -65,11 +65,11 @@ public class Autore {
 		AnnoM = annoM;
 	}
 
-	public char getSesso() {
+	public String getSesso() {
 		return Sesso;
 	}
 
-	public void setSesso(char sesso) {
+	public void setSesso(String sesso) {
 		Sesso = sesso;
 	}
 
@@ -79,6 +79,12 @@ public class Autore {
 
 	public void setNazione(String nazione) {
 		Nazione = nazione;
+	}
+
+	@Override
+	public String toString() {
+		return "Autore [AutoreID=" + AutoreID + ", Nome=" + Nome + ", Cognome=" + Cognome + ", AnnoN=" + AnnoN
+				+ ", AnnoM=" + AnnoM + ", Sesso=" + Sesso + ", Nazione=" + Nazione + "]";
 	}
 	
 	

@@ -10,7 +10,7 @@ public interface AutoreDao {
 	List<Autore> getAllAutori();
 	
 	// metodo per avere autore in base all'ID
-	Autore getAutoreID(String id);
+	Autore getAutoreID(int id);
 	
 	// metodo inserimento autore
 	void insertAutore (Autore autore);
