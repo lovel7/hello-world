@@ -83,7 +83,7 @@ public class GenereDaoImpl implements GenereDao {
 			// Verifico se il genere esiste già nella lista
 			if (genereList.contains(genere)) {
 				System.out.println("Il genere esiste già nella lista");
-				return; // Esce dal metodo senza eseguire l'inserimento
+				return; 
 			}
 
 			// Verifica se il genere esiste già nel database
@@ -94,7 +94,7 @@ public class GenereDaoImpl implements GenereDao {
 
 			if (resultSet.next()) {
 				System.out.println("Il genere esiste già nel database");
-				return; // Esce dal metodo senza eseguire l'inserimento
+				return; 
 			}
 
 			// Inserisci il genere nel database

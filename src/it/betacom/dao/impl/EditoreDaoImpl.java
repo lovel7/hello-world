@@ -113,31 +113,19 @@ public class EditoreDaoImpl implements EditoreDao {
 	@Override
 	public void deleteEditore(Editore editore) {
 		try {
-			con.setAutoCommit(false);
+			
 			String query = "delete from eserciziolibri.editori where CodiceE = ? and Nome = ?";
 			PreparedStatement preparedStatement = con.prepareStatement(query);
 			preparedStatement.setInt(1, editore.getCodiceE());
 			preparedStatement.setString(2, editore.getNome());
 			preparedStatement.executeUpdate();
 			editoreList.remove(editore);
-			con.commit();
 			System.out.println("Editore cancellato correttamente");
 
 		} catch (SQLException e) {
-			try {
-				con.rollback(); // In caso di errore, esegui il rollback della transazione
-			} catch (SQLException rollbackException) {
-				rollbackException.printStackTrace();
-			}
 			System.out.println("Non è possibile cancellare l'editore");
 			e.printStackTrace();
-		} finally {
-			try {
-				con.setAutoCommit(true); // Ripristina l'autocommit
-			} catch (SQLException autoCommitException) {
-				autoCommitException.printStackTrace();
-			}
-		}
+		} 
 	}
 
 	@Override
