@@ -45,7 +45,6 @@ public class TestGenere {
 
 			System.out.println("--------------------------------------------------");
 			System.out.println("Es 7 cancellare genere");
-			Genere genereDaCancellare = new Genere(5, "Narrativa" + "");
 			genereDaoImpl.deleteGenere(nuovoGenere);
 			System.out.println("Lista aggiornata dopo cancellazione:");
 			for (Genere genere : generi) {
