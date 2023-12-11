@@ -142,7 +142,10 @@ public class AutoreDaoImpl implements AutoreDao {
 
 	@Override
 	public void updateAutore(Autore autore) {
-		// TODO Auto-generated method stub
+		
+			String query = "UPDATE eserciziolibri.autori SET Tipo = ? WHERE codiceG = ?";
+
+
 
 	}
 
