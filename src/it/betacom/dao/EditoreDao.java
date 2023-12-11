@@ -10,7 +10,7 @@ public interface EditoreDao {
 		List<Editore> getAllEditori();
 		
 		// metodo per avere editore in base all'ID
-		Editore getCodiceE(String id);
+		Editore getCodiceE(int id);
 		
 		// metodo inserimento editore
 		void insertEditore (Editore editore);

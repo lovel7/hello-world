@@ -53,9 +53,9 @@ public class TestGenere {
 
 			System.out.println("--------------------------------------------------");
 			System.out.println("Es 8 modificare genere");
-			Genere genereDaModificare = new Genere(1, "Gialli del 900");
+			Genere genereDaModificare = new Genere(4, "Romanzo");
 			genereDaoImpl.updateGenere(genereDaModificare);
-			System.out.println("Lista aggiornata dopo cancellazione:");
+			System.out.println("Lista aggiornata dopo la modifica:");
 			for (Genere genere : generi) {
 				System.out.println(genere.getCodiceG() + ": " + genere.getTipo());
 			}
