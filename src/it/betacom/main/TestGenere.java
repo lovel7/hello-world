@@ -28,7 +28,7 @@ public class TestGenere {
 
 			Genere trovaGenere = genereDaoImpl.getCodiceG(1);
 			if (trovaGenere != null) {
-				System.out.println("IL genere che si riferisce al codice " + trovaGenere.getCodiceG() + " è: "
+				System.out.println("Il genere che si riferisce al codice " + trovaGenere.getCodiceG() + " è: "
 						+ trovaGenere.getTipo());
 			} else {
 				System.out.println("Genere non trovato per il codice specificato.");

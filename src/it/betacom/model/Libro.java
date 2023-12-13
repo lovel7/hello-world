@@ -1,34 +1,36 @@
 package it.betacom.model;
 
 public class Libro {
-	
-	private String LibroID;
+
+	private int LibroID;
 	private String Titolo;
 	private int numPag;
-	private String AutoreID;
-	private String CodiceG;
-	private String CodiceE;
-	
+	private int Anno;
+	private int AutoreID;
+	private int CodiceG;
+	private int CodiceE;
+
 	public Libro() {
 		super();
 
 	}
 
-	public Libro(String libroID, String titolo, int numPag, String autoreID, String codiceG, String codiceE) {
+	public Libro(int libroID, String titolo, int numPag, int Anno, int autoreID, int codiceG, int codiceE) {
 		super();
 		LibroID = libroID;
 		Titolo = titolo;
 		this.numPag = numPag;
+		this.Anno = Anno;
 		AutoreID = autoreID;
 		CodiceG = codiceG;
 		CodiceE = codiceE;
 	}
 
-	public String getLibroID() {
+	public int getLibroID() {
 		return LibroID;
 	}
 
-	public void setLibroID(String libroID) {
+	public void setLibroID(int libroID) {
 		LibroID = libroID;
 	}
 
@@ -48,30 +50,36 @@ public class Libro {
 		this.numPag = numPag;
 	}
 
-	public String getAutoreID() {
+	public int getAnno() {
+		return Anno;
+	}
+
+	public void setAnno(int anno) {
+		this.Anno = anno;
+	}
+
+	public int getAutoreID() {
 		return AutoreID;
 	}
 
-	public void setAutoreID(String autoreID) {
+	public void setAutoreID(int autoreID) {
 		AutoreID = autoreID;
 	}
 
-	public String getCodiceG() {
+	public int getCodiceG() {
 		return CodiceG;
 	}
 
-	public void setCodiceG(String codiceG) {
+	public void setCodiceG(int codiceG) {
 		CodiceG = codiceG;
 	}
 
-	public String getCodiceE() {
+	public int getCodiceE() {
 		return CodiceE;
 	}
 
-	public void setCodiceE(String codiceE) {
+	public void setCodiceE(int codiceE) {
 		CodiceE = codiceE;
 	}
-	
-	
 
 }

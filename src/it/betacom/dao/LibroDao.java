@@ -10,7 +10,7 @@ public interface LibroDao {
 	List<Libro> getAllLibri();
 	
 	// metodo per avere libro in base all'ID
-	Libro getLibroID(String id);
+	Libro getLibroID(int id);
 	
 	// metodo inserimento libro
 	void insertLibro (Libro libro);

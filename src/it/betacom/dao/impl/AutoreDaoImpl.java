@@ -11,8 +11,6 @@ import java.util.List;
 
 import it.betacom.dao.AutoreDao;
 import it.betacom.model.Autore;
-import it.betacom.model.Editore;
-import it.betacom.model.Genere;
 
 public class AutoreDaoImpl implements AutoreDao {
 
@@ -142,10 +140,48 @@ public class AutoreDaoImpl implements AutoreDao {
 
 	@Override
 	public void updateAutore(Autore autore) {
-		
-			String query = "UPDATE eserciziolibri.autori SET Tipo = ? WHERE codiceG = ?";
+		try {
+			String query = "UPDATE eserciziolibri.autori SET Nome = ?, Cognome = ?, AnnoN = ?, AnnoM = ?, Sesso = ?, Nazione = ? WHERE AutoreID = ?";
+			PreparedStatement preparedStatement = con.prepareStatement(query);
+			preparedStatement.setString(1, autore.getNome());
+			preparedStatement.setString(2, autore.getCognome());
+			preparedStatement.setInt(3, autore.getAnnoN());
+			preparedStatement.setInt(4, autore.getAnnoM());
+			preparedStatement.setString(5, autore.getSesso());
+			preparedStatement.setString(6, autore.getNazione());
+			preparedStatement.setInt(7, autore.getAutoreID());
+			preparedStatement.executeUpdate();
+			System.out.println("Autore modificato correttamente");
 
+			// aggiornamento lista dopo update
+			for (Autore a : autoreList) {
+				if (a.getAutoreID() == autore.getAutoreID()) {
+					a.setNome(autore.getNome());
+					a.setCognome(autore.getCognome());
+					a.setAnnoN(autore.getAnnoN());
+					a.setAnnoM(autore.getAnnoM());
+					a.setSesso(autore.getSesso());
+					a.setNazione(autore.getNazione());
 
+					break;
+				}
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Non è possibile cancellare l'autore");
+			e.printStackTrace();
+		}
+
+	}
+
+	public void closeConnection() {
+		try {
+			if (con != null && !con.isClosed()) {
+				con.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
